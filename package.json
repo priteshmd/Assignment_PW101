@@ -1,0 +1,26 @@
+{
+  "name": "com.playwright.exam",
+  "version": "1.0.0",
+  "description": "Assignment for Lambdatest PW 101 exam",
+  "main": "index.js",
+  "scripts": {
+    "test-chrome": "playwright test --project=chromium",
+    "test-firefox": "playwright test --project=chromium",
+    "test-webkit": "playwright test --project=chromium",
+    "test": "playwright test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/priteshmd/Assignment_PW101.git"
+  },
+  "author": "Pritesh Dhakate",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/priteshmd/Assignment_PW101/issues"
+  },
+  "homepage": "https://github.com/priteshmd/Assignment_PW101#readme",
+  "dependencies": {
+    "@playwright/test": "^1.29.0",
+    "playwright": "^1.29.0"
+  }
+}
