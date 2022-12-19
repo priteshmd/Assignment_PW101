@@ -4,9 +4,14 @@
   "description": "Assignment for Lambdatest PW 101 exam",
   "main": "index.js",
   "scripts": {
-    "test-chrome": "playwright test --project=chromium",
-    "test-firefox": "playwright test --project=chromium",
-    "test-webkit": "playwright test --project=chromium",
+    "test-chrome-mac": "npx playwright test tests.spec.ts --project=\"pw-chromium:latest:MacOS Catalina@lambdatest\"",
+    "test-chrome-win": "npx playwright test tests.spec.ts --project=\"pw-chromium:latest:Windows 10@lambdatest\"",
+    "test-firefox-mac": "npx playwright test tests.spec.ts --project=\"pw-firefox:latest:MacOS Catalina@lambdatest\"",
+    "test-firefox-win": "npx playwright test tests.spec.ts --project=\"pw-firefox:latest:Windows 10@lambdatest\"",
+    "test-firefox-chrome-win": "npx playwright test tests.spec.ts --project=\"pw-firefox:latest:Windows 10@lambdatest\" --project=\"pw-chromium:latest:Windows 10@lambdatest\"",
+    "test-firefox-chrome-mac": "npx playwright test tests.spec.ts --project=\"pw-chromium:latest:MacOS Catalina@lambdatest\" --project=\"pw-firefox:latest:MacOS Catalina@lambdatest\"",
+    "test-firefox-win-chrome-mac": "npx playwright test tests.spec.ts --project=\"pw-firefox:latest:Windows 10@lambdatest\" --project=\"pw-chromium:latest:MacOS Catalina@lambdatest\"",
+    "test-firefox-mac-chrome-win": "npx playwright test tests.spec.ts --project=\"pw-firefox:latest:MacOS Catalina@lambdatest\" --project=\"pw-chromium:latest:Windows 10@lambdatest\"",
     "test": "playwright test"
   },
   "repository": {

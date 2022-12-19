@@ -1,8 +1,8 @@
-import test, {expect} from "@playwright/test";
+import  {expect} from "@playwright/test";
+import test from "../lambdatest-setup";
 
 
 const url = "https://www.lambdatest.com/selenium-playground";
-
 
 test.describe("group of tests 1", () => {
     // test.describe.configure({ mode: 'parallel' });
@@ -16,9 +16,9 @@ test("Scenario 1",async ({page}) => {
     const msg = "Welcome to LambdaTest";
 
     await page.locator('input#user-message').fill(msg)
-    await page.waitForTimeout(500);;
+    await page.waitForTimeout(800);
     await page.locator('#showInput').click();
-
+    await page.waitForTimeout(800);
     expect((await page.locator('#message').innerText()).toString()).toBe(msg);
     
 });
@@ -36,11 +36,19 @@ test("Scenario 2",async ({page}) => {
         targetPosition: { x: 105, y: 1 },
     });
     await page.waitForTimeout(500);
+    try{
     await source.dragTo(source, {
-        targetPosition: { x: 256, y: 1 },
+        targetPosition: { x: 255.6, y: 1 },
     });
-    await page.waitForTimeout(500);
-    expect((await target.innerText())).toBe('95');  
+    await page.waitForTimeout(1500);
+    expect((await target.innerText())).toBe('95');
+    }catch(error) { //In case of firefox browser
+        await source.dragTo(source, {
+            targetPosition: { x: 254, y: 1 },
+        });
+        await page.waitForTimeout(1500);    
+        expect((await target.innerText())).toBe('95');
+    }
 });
 
 test("Scenario 3",async ({page}) => {
@@ -70,4 +78,9 @@ test("Scenario 3",async ({page}) => {
 
 
 });
+
+test.afterEach(async ({page}) => {
+    page.close();
+    
+})
 });

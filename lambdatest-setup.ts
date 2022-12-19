@@ -12,9 +12,9 @@ const capabilities = {
   browserName: "Chrome", // Browsers allowed: `Chrome`, `MicrosoftEdge`, `pw-chromium`, `pw-firefox` and `pw-webkit`
   browserVersion: "latest",
   "LT:Options": {
-    platform: "Windows 10",
-    build: "Playwright Build",
-    name: "Playwright Test",
+    platform: "MacOS Monterey",
+    build: "Playwright final build",
+    name: "Playwright Test 101",
     user: process.env.LT_USERNAME,
     accessKey: process.env.LT_ACCESS_KEY,
     network: true,
@@ -25,7 +25,6 @@ const capabilities = {
     geoLocation: '', // country code can be fetched from https://www.lambdatest.com/capabilities-generator/
   },
 };
-
 // Patching the capabilities dynamically according to the project name.
 const modifyCapabilities = (configName, testName) => {
   let config = configName.split("@lambdatest")[0];
