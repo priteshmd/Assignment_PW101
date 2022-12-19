@@ -20,6 +20,12 @@ const config: PlaywrightTestConfig = {
       },
     },
     {
+      name: 'pw-firefox:latest:MacOS Catalina@lambdatest',
+      use: {
+        viewport: { width: 1920, height: 1080 },
+      },
+    },
+    {
       name: "pw-firefox:latest:Windows 10@lambdatest",
       use: {
         viewport: { width: 1920, height: 1080 },
